@@ -31,7 +31,6 @@ Plug 'uarun/vim-protobuf'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/Align'
 Plug 'w0rp/ale'
-Plug 'yegappan/grep'
 
 call plug#end()
 
