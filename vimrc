@@ -88,7 +88,7 @@ command! -nargs=0 GitGrepWord :call GitGrepWord()
 nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 
 " FZF
- let $FZF_DEFAULT_COMMAND = 'find . -name "*" -type f 2>/dev/null
+let $FZF_DEFAULT_COMMAND = 'find . -type f 2>/dev/null
                              \ | grep -v -E "tmp\/|.gitmodules|.git\/|deps\/|_build\/|node_modules\/|vendor\/"
                              \ | sed "s|^\./||"'
 let $FZF_DEFAULT_OPTS = '--reverse'
