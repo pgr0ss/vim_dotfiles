@@ -77,6 +77,15 @@ command! W w
 " https://vim.fandom.com/wiki/Reverse_order_of_lines
 command! -bar -range=% ReverseLines <line1>,<line2>g/^/m<line1>-1|nohl
 
+" Grep
+function! Grep(search)
+  let l:cmd = 'rg -i --vimgrep "' . a:search . '"'
+  echo 'Running: ' . l:cmd
+  cgetexpr system(l:cmd)
+  cwin
+endfunction
+command! -nargs=1 Grep :call Grep('<args>')
+
 " GitGrepWord
 function! GitGrepWord()
   cgetexpr system("git grep -n '" . expand("<cword>") . "'")
