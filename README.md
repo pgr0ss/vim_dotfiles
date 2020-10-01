@@ -59,13 +59,8 @@ Git
 
 ```
 \gw - git grep for the word under the cursor
-\gh - get the github url for the current file
-```
 
-Whitespace
-
-```
-\cw - clean up trailing whitespace at the end of the line
+:GitHubURL - get the github url for the current file at the current line
 ```
 
 Test Mappings
