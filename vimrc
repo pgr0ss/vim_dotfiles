@@ -74,6 +74,9 @@ autocmd Filetype elixir :command! A ElixirAlternateFile()
 command! SudoW w !sudo tee "%" > /dev/null
 command! W w
 
+map <silent> <LocalLeader>p :set paste<CR>:echo 'Paste mode on'<CR>
+map <silent> <LocalLeader>P :set nopaste<CR>:echo 'Paste mode off'<CR>
+
 " https://vim.fandom.com/wiki/Reverse_order_of_lines
 command! -bar -range=% ReverseLines <line1>,<line2>g/^/m<line1>-1|nohl
 
