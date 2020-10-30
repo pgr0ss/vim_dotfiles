@@ -24,6 +24,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
@@ -35,19 +36,16 @@ Plug 'w0rp/ale'
 call plug#end()
 
 set background=dark
-set backspace=indent,eol,start
 set backupcopy=yes
 set completeopt-=preview
 set dir=/tmp//
 set hidden
 set hlsearch
 set ignorecase
-set incsearch
 set isk+=?
 set mouse=
 set nofoldenable
 set number
-set ruler
 set scrolloff=5
 set showmatch
 set smartcase
@@ -169,7 +167,6 @@ if v:shell_error == 0
 endif
 
 " Status
-set laststatus=2
 set statusline=
 set statusline+=%<\                       " cut at start
 set statusline+=%2*[%n%H%M%R%W]%*\        " buffer number, and flags
