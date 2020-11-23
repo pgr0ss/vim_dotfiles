@@ -61,7 +61,7 @@ nnoremap <silent> j gj
 nnoremap <silent> Y y$
 
 autocmd BufNewFile,BufRead *.md,*.markdown setlocal textwidth=120 spell
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=120 spell
+autocmd BufNewFile,BufRead *.txt setlocal spell
 autocmd FileType elm,kotlin,php,python,rust setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType gitcommit setlocal spell
 autocmd FileType go setlocal noexpandtab
