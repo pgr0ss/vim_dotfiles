@@ -71,6 +71,7 @@ autocmd Filetype elixir :command! A ElixirAlternateFile()
 " Aliases
 command! SudoW w !sudo tee "%" > /dev/null
 command! W w
+imap <C-L> <SPACE>=><SPACE>
 
 map <silent> <LocalLeader>p :set paste<CR>:echo 'Paste mode on'<CR>
 map <silent> <LocalLeader>P :set nopaste<CR>:echo 'Paste mode off'<CR>
