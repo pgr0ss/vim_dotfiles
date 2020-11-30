@@ -158,8 +158,11 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'ruby': ['rufo'],
 \   'terraform': ['terraform'],
 \}
+
+let g:ale_ruby_rufo_executable = 'bundle'
 
 let black = system('grep -q black Pipfile')
 if v:shell_error == 0
