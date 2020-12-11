@@ -131,11 +131,11 @@ let g:test#strategy = 'vimux'
 let g:test#preserve_screen = 0
 let g:VimuxUseNearestPane = 1
 
-map <silent> <LocalLeader>ri :wa<CR> :VimuxInspectRunner<CR>
-map <silent> <LocalLeader>vl :wa<CR> :VimuxRunLastCommand<CR>
-map <silent> <LocalLeader>vi :wa<CR> :VimuxInspectRunner<CR>
-map <silent> <LocalLeader>vk :wa<CR> :VimuxInterruptRunner<CR>
-map <silent> <LocalLeader>vx :wa<CR> :VimuxCloseRunner<CR>
+map <silent> <LocalLeader>ri :wa<CR>:VimuxInspectRunner<CR>
+map <silent> <LocalLeader>vl :wa<CR>:VimuxRunLastCommand<CR>
+map <silent> <LocalLeader>vi :wa<CR>:VimuxInspectRunner<CR>
+map <silent> <LocalLeader>vk :wa<CR>:VimuxInterruptRunner<CR>
+map <silent> <LocalLeader>vx :wa<CR>:VimuxCloseRunner<CR>
 map <silent> <LocalLeader>vp :VimuxPromptCommand<CR>
 
 vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
