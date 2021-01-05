@@ -13,6 +13,7 @@ Plug 'janko-m/vim-test'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'kshenoy/vim-signature'
 Plug 'pgr0ss/vim-github-url'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
@@ -48,6 +49,7 @@ set nofoldenable
 set number
 set scrolloff=5
 set showmatch
+set signcolumn=yes
 set smartcase
 set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set updatetime=300
