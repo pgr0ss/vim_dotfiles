@@ -154,6 +154,7 @@ let g:ale_set_signs = 1                   " Enable signs showing in the gutter t
 
 let g:ale_linters = {
 \   'elixir': ['mix'],
+\   'go': ['golint'],
 \   'puppet': ['puppetlint'],
 \   'ruby': ['ruby'],
 \}
