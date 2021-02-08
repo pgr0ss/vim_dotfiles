@@ -157,6 +157,7 @@ let g:ale_linters = {
 \   'go': ['golint'],
 \   'puppet': ['puppetlint'],
 \   'ruby': ['ruby'],
+\   'sh': ['shellcheck'],
 \}
 
 let g:ale_fixers = {
