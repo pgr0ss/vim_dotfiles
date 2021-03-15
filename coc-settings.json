@@ -1,0 +1,32 @@
+{
+"coc": {
+    "preferences": {
+      "bracketEnterImprove": false,
+      "enableFloatHighlight": false,
+      "extensionUpdateCheck": "never",
+      "formatOnSaveFiletypes": [
+        "go"
+      ],
+      "hoverTarget": "preview",
+      "previewAutoClose": false,
+      "diagnostic": {
+        "checkCurrentLine": true
+      },
+      "snippets": {
+        "enable": false
+      }
+    }
+  },
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true
+      }
+    }
+  }
+}
