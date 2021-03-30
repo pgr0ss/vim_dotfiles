@@ -70,6 +70,10 @@ autocmd FileType go setlocal noexpandtab
 autocmd FileType tex setlocal textwidth=80 spell
 autocmd Filetype elixir :command! A ElixirAlternateFile()
 
+augroup filetypedetect
+  au BufRead,BufNewFile go.mod set filetype=go
+augroup END
+
 " Aliases
 command! SudoW w !sudo tee "%" > /dev/null
 command! W w
