@@ -104,9 +104,7 @@ command! -nargs=0 GitGrepWord :call GitGrepWord()
 nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 
 " FZF
-let $FZF_DEFAULT_COMMAND = 'find . -type f 2>/dev/null
-                             \ | grep -v -E "tmp\/|.gitmodules|.git\/|deps\/|_build\/|node_modules\/|vendor\/"
-                             \ | sed "s|^\./||"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob !.git --sort path'
 let $FZF_DEFAULT_OPTS = '--reverse'
 let g:fzf_tags_command = 'ctags -R --exclude=".git" --exclude="node_modules" --exclude="vendor" --exclude="log" --exclude="tmp" --exclude="db" --exclude="pkg" --exclude="deps" --exclude="_build" --exclude="output" --extra=+f .'
 
