@@ -119,6 +119,7 @@ let g:markdown_fenced_languages = [
 \  'go',
 \  'html',
 \  'java',
+\  'json',
 \  'javascript',
 \  'python',
 \  'ruby',
