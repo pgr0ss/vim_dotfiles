@@ -9,7 +9,6 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'elixir-lang/vim-elixir'
 Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
-Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
@@ -112,6 +111,22 @@ map <silent> <leader>ff :Files<CR>
 map <silent> <leader>fg :GFiles<CR>
 map <silent> <leader>fb :Buffers<CR>
 map <silent> <leader>ft :Tags<CR>
+
+" Markdown
+
+let g:markdown_fenced_languages = [
+\  'bash=sh',
+\  'go',
+\  'html',
+\  'java',
+\  'javascript',
+\  'python',
+\  'ruby',
+\  'c',
+\  'rust',
+\  'c++=cpp',
+\  'cpp',
+\]
 
 " NerdTree
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
