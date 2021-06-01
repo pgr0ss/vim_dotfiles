@@ -116,17 +116,17 @@ map <silent> <leader>ft :Tags<CR>
 
 let g:markdown_fenced_languages = [
 \  'bash=sh',
+\  'c',
+\  'c++=cpp',
+\  'cpp',
 \  'go',
 \  'html',
 \  'java',
-\  'json',
 \  'javascript',
+\  'json',
 \  'python',
 \  'ruby',
-\  'c',
 \  'rust',
-\  'c++=cpp',
-\  'cpp',
 \]
 
 " NerdTree
