@@ -7,12 +7,12 @@ Plug 'aklt/plantuml-syntax'
 Plug 'benmills/vimux'
 Plug 'chase/vim-ansible-yaml'
 Plug 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pgr0ss/vim-github-url'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
@@ -172,6 +172,7 @@ let g:ale_set_signs = 1                   " Enable signs showing in the gutter t
 
 let g:ale_linters = {
 \   'elixir': ['mix'],
+\   'go': ['golint'],
 \   'puppet': ['puppetlint'],
 \   'ruby': ['ruby'],
 \   'sh': ['shellcheck'],
@@ -183,9 +184,6 @@ let g:ale_fixers = {
 \   'terraform': ['terraform'],
 \}
 
-"" Sometimes Coc puts the error at the end of the file (e.g. when missing a close brace), so we don't want to format it with ale. Once the file compiles, gofmt will format it as part of Coc.
-let g:ale_fix_on_save_ignore = {'go': ['remove_trailing_lines', 'trim_whitespace']}
-
 let g:ale_ruby_rufo_executable = 'bundle'
 
 let black = system('grep -q black Pipfile')
@@ -193,50 +191,6 @@ if v:shell_error == 0
   let g:ale_fixers['python'] = ['black']
   let g:ale_python_black_auto_pipenv = 1
 endif
-
-" Coc
-
-highlight! CocFloating ctermbg=black
-
-command! -nargs=0 CocOutputChannel :CocCommand workspace.showOutput
-command! -nargs=0 CocImports :call CocAction('runCommand', 'editor.action.organizeImport')
-
-inoremap <silent><expr> <c-@> coc#refresh()
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Status
 set statusline=
