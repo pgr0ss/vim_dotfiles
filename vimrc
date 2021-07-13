@@ -162,13 +162,18 @@ vmap <silent> <LocalLeader>vs "vy :call VimuxRunCommand(@v)<CR>
 nmap <silent> <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 " Ale
+let g:ale_completion_enabled = 1
 let g:ale_enabled = 1                     " Enable linting by default
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1        " Automatically lint when leaving insert mode
 let g:ale_lint_on_text_changed = 'normal' " Only lint while in normal mode
 let g:ale_linters_explicit = 1            " Only run linters that are explicitly listed below
+let g:ale_lsp_suggestions = 1
 let g:ale_set_highlights = 0              " Disable highlighting as it interferes with readability and accessibility
 let g:ale_set_signs = 1                   " Enable signs showing in the gutter to reduce interruptive visuals
+
+set omnifunc=ale#completion#OmniFunc
+nnoremap <silent> gd :ALEGoToDefinition<CR>
 
 let g:ale_linters = {
 \   'elixir': ['mix'],
