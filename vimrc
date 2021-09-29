@@ -10,6 +10,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
