@@ -193,7 +193,7 @@ let g:ale_fixers = {
 
 let g:ale_ruby_rufo_executable = 'bundle'
 
-let black = system('grep -q black Pipfile')
+let black = system('grep -q black **/Pipfile')
 if v:shell_error == 0
   let g:ale_fixers['python'] = ['black']
   let g:ale_python_black_auto_pipenv = 1
