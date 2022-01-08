@@ -1,11 +1,11 @@
 ## Overview
 
 ```bash
-# Clone directly into ~/.vim
-git clone git@github.com:pgr0ss/vim_dotfiles ~/.vim
+# Clone directly into ~/.config/nvim
+git clone git@github.com:pgr0ss/vim_dotfiles ~/.config/nvim
 
 # Install plugins
-~/.vim/activate.sh
+~/.config/nvim/activate.sh
 ```
 
 Uses `vim-plug` to manage bundles.
