@@ -11,9 +11,10 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
 Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'pgr0ss/vim-github-url'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
@@ -95,24 +96,14 @@ function! Grep(search)
 endfunction
 command! -nargs=1 Grep :call Grep('<args>')
 
-" GitGrepWord
-function! GitGrepWord()
-  cgetexpr system("git grep -n '" . expand("<cword>") . "'")
-  cwin
-  echo 'Number of matches: ' . len(getqflist())
-endfunction
-command! -nargs=0 GitGrepWord :call GitGrepWord()
-nnoremap <silent> <Leader>gw :GitGrepWord<CR>
-
-" FZF
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob !.git --sort path'
-let $FZF_DEFAULT_OPTS = '--reverse'
-let g:fzf_tags_command = 'ctags -R --exclude=".git" --exclude="node_modules" --exclude="vendor" --exclude="log" --exclude="tmp" --exclude="db" --exclude="pkg" --exclude="deps" --exclude="_build" --exclude="output" --extra=+f .'
-
-map <silent> <leader>ff :Files<CR>
-map <silent> <leader>fg :GFiles<CR>
-map <silent> <leader>fb :Buffers<CR>
-map <silent> <leader>ft :Tags<CR>
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ft <cmd>Telescope tags<cr>
+nnoremap <leader>gw <cmd>Telescope grep_string<cr>
+nnoremap <leader>lw <cmd>Telescope live_grep<cr>
 
 " Markdown
 
@@ -209,3 +200,18 @@ set statusline+=%1*%y%*%*\                " file type
 set statusline+=%10(L(%l/%L)%)\           " line
 set statusline+=%2(C(%v/125)%)\           " column
 set statusline+=%P                        " percentage of file
+
+" TreeSitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  highlight = {
+    enable = true,
+  },
+}
+EOF
