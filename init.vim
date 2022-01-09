@@ -12,7 +12,9 @@ Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
 Plug 'jparise/vim-graphql'
 Plug 'kshenoy/vim-signature'
+Plug 'kyazdani42/nvim-web-devicons' " For lualine"
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'pgr0ss/vim-github-url'
@@ -190,16 +192,14 @@ if v:shell_error == 0
   let g:ale_python_black_auto_pipenv = 1
 endif
 
-" Status
-set statusline=
-set statusline+=%<\                       " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*\        " buffer number, and flags
-set statusline+=%-40f\                    " relative path
-set statusline+=%=                        " seperate between right- and left-aligned
-set statusline+=%1*%y%*%*\                " file type
-set statusline+=%10(L(%l/%L)%)\           " line
-set statusline+=%2(C(%v/125)%)\           " column
-set statusline+=%P                        " percentage of file
+" Lualine
+lua << END
+require('lualine').setup {
+  options = {
+    theme = 'codedark',
+  }
+}
+END
 
 " TreeSitter
 lua <<EOF
